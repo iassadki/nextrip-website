@@ -12,6 +12,8 @@
   --color-surface: #fff5ec;
   --color-surface-strong: #ffeedf;
   --color-border: #f6dcc6;
+  --color-nav-bg: rgb(255 235 217 / 0.92);
+  --color-nav-border: #ffd4b0;
 
   /* Text */
   --color-text: #1f1a17;
@@ -50,7 +52,17 @@
   /* Layout */
   --container-width: 1160px;
   --container-gutter: clamp(1rem, 4vw, 2rem);
-  --header-height: 64px;
+  --header-top: 16px;
+  --header-bar-height: 64px;
+  /* Space the fixed navbar takes over the content (used for anchors and the hero). */
+  --header-offset: calc(var(--header-top) + var(--header-bar-height) + var(--space-4));
 
   --transition: 180ms ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-top: 24px;
+    --header-bar-height: 76px;
+  }
 }

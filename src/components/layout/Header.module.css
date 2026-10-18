@@ -1,23 +1,40 @@
+/* Floating pill navbar, fixed above the page content. */
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  height: var(--header-height);
-  background: rgb(255 255 255 / 0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgb(246 220 198 / 0.6);
+  position: fixed;
+  top: var(--header-top);
+  left: 50%;
+  z-index: 50;
+  width: calc(100% - 2 * var(--header-top));
+  max-width: var(--container-width);
+  translate: -50% 0;
 }
 
-.inner {
+.bar,
+.menu {
+  border: 2px solid var(--color-nav-border);
+  background: var(--color-nav-bg);
+  box-shadow: 0 2px 0 rgb(120 60 20 / 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-5);
-  height: 100%;
+  min-height: var(--header-bar-height);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
 }
 
-.inner > a {
+.brand {
+  display: flex;
   text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.brand:hover {
+  opacity: 0.85;
 }
 
 .nav,
@@ -27,24 +44,130 @@
 
 .links {
   display: flex;
-  gap: var(--space-6);
+  gap: clamp(var(--space-5), 3vw, var(--space-7));
 }
 
 .link {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   font-weight: 500;
   text-decoration: none;
-  color: var(--color-text-muted);
+  color: rgb(31 26 23 / 0.6);
   transition: color var(--transition);
 }
 
 .link:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-strong);
+}
+
+/* Burger button (mobile only). */
+.menuButton {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-primary-strong);
+  cursor: pointer;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform var(--transition),
+    background-color var(--transition);
+}
+
+.burger {
+  position: relative;
+}
+
+.burger::before,
+.burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.burger::before {
+  transform: translateY(-7px);
+}
+
+.burger::after {
+  transform: translateY(7px);
+}
+
+.burgerOpen {
+  background: transparent;
+}
+
+.burgerOpen::before {
+  transform: rotate(45deg);
+}
+
+.burgerOpen::after {
+  transform: rotate(-45deg);
+}
+
+/* Dropdown panel (mobile only). */
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  background: var(--color-primary-soft);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+}
+
+.menu[hidden] {
+  display: none;
+}
+
+.menu .links {
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.menuOpen {
+  animation: menu-in 160ms ease-out;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuOpen {
+    animation: none;
+  }
 }
 
 @media (min-width: 768px) {
+  .bar {
+    padding: var(--space-3) var(--space-3) var(--space-3) var(--space-6);
+  }
+
   .nav,
   .cta {
     display: block;
+  }
+
+  .menuButton,
+  .menu {
+    display: none;
   }
 }

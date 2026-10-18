@@ -3,9 +3,9 @@
   isolation: isolate;
   display: grid;
   place-items: center;
-  min-height: clamp(380px, 62vh, 560px);
+  min-height: clamp(460px, 72vh, 640px);
   overflow: hidden;
-  padding-block: var(--space-8) var(--space-7);
+  padding-block: calc(var(--header-offset) + var(--space-6)) var(--space-7);
   background:
     radial-gradient(ellipse at 30% 85%, rgb(255 214 150 / 0.9), transparent 55%),
     linear-gradient(180deg, #e9a3a6 0%, #f4b48f 45%, #ffd2a1 75%, #fff2e3 100%);

@@ -145,8 +145,7 @@ export const FOOTER = {
   slogan: ['And you,', 'what’s your Nextrip ?'],
   copyright: `© ${new Date().getFullYear()} Nextrip — Ilias ASSADKI EI. Tous droits réservés.`,
   legalLinks: [
-    { label: 'CGU', to: `${ROUTES.legalNotice}#cgu` },
-    { label: 'Mentions légales', to: ROUTES.legalNotice },
+    { label: 'Mentions légales & CGU', to: `${ROUTES.legalNotice}` },
     { label: 'Politique de confidentialité', to: ROUTES.privacyPolicy },
   ],
 } as const

@@ -1,0 +1,45 @@
+.row {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+.phone {
+  max-width: 220px;
+}
+
+.text {
+  max-width: 460px;
+}
+
+.title {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: var(--fs-lg);
+}
+
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: 1fr 1.4fr;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .reversed {
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .reversed .phone {
+    order: 2;
+  }
+
+  .phone {
+    max-width: 240px;
+  }
+}

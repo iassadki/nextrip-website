@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.icon {
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}

@@ -1,0 +1,22 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 620px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: var(--fs-lg);
+}
+
+.observation em {
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .observation {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+}

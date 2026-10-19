@@ -13,12 +13,15 @@ npm run lint
 
 ```
 src/
-├── app/                 # Composition racine (App)
+├── app/                 # App, routeur, layout racine, routes
 ├── components/
 │   ├── icons/           # Logo vectoriel, icônes ligne, réseaux sociaux
 │   ├── layout/          # Header, Footer
 │   └── ui/              # Primitives réutilisables (Button, Card, Section, Container, Logo, PhoneFrame)
-├── data/content.ts      # Tous les textes / liens du site (source unique)
+├── data/
+│   ├── content.ts       # Textes / liens de la landing (source unique)
+│   └── legal/           # Mentions légales + CGU, politique de confidentialité
+├── features/legal/      # Pages légales (chargées à la demande) + LegalDocument
 ├── features/landing/
 │   ├── components/      # Composants propres à la landing (FeatureRow, ObjectiveCard, AppScreen…)
 │   ├── sections/        # Une section de page = un composant
@@ -29,5 +32,6 @@ src/
 
 - **Styles** : CSS Modules par composant + variables CSS dans `styles/tokens.css` (couleurs, typo, espacements, rayons).
 - **Contenu** : modifier un texte = modifier `src/data/content.ts`, sans toucher aux composants.
+- **Routes** : `/`, `/mentions-legales` (mentions + CGU), `/politique-de-confidentialite` (react-router, voir `app/routes.ts`). `public/_redirects` sert l'app pour toutes les URL sur Netlify.
 - **Imports** : alias `@/` vers `src/`, imports directs (pas de fichiers barrel).
 - **Captures de l'app** : les écrans sont des maquettes illustratives (`AppScreen`). Pour utiliser de vraies captures, déposez-les dans `src/assets/images/` et passez-les à `<PhoneFrame src={…} alt="…" />`.

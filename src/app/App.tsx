@@ -1,15 +1,6 @@
-import { Footer } from '@/components/layout/Footer'
-import { Header } from '@/components/layout/Header'
-import { LandingPage } from '@/features/landing/LandingPage'
+import { RouterProvider } from 'react-router'
+import { router } from './router'
 
 export function App() {
-  return (
-    <>
-      <Header />
-      <main>
-        <LandingPage />
-      </main>
-      <Footer />
-    </>
-  )
+  return <RouterProvider router={router} />
 }

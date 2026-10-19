@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
@@ -41,8 +42,8 @@ export function Footer() {
           <nav aria-label="Informations légales">
             <ul>
               {FOOTER.legalLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href}>{link.label}</a>
+                <li key={link.to}>
+                  <Link to={link.to}>{link.label}</Link>
                 </li>
               ))}
             </ul>

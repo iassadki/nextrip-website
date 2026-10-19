@@ -2,6 +2,7 @@
  * All landing-page copy lives here so sections stay purely presentational
  * and the text can be edited (or translated) without touching components.
  */
+import { ROUTES } from '@/app/routes'
 import type { IconName } from '@/components/icons/Icon'
 
 export const SECTION_IDS = {
@@ -11,9 +12,9 @@ export const SECTION_IDS = {
 } as const
 
 export const NAV_LINKS = [
-  { label: 'Présentation', href: `#${SECTION_IDS.presentation}` },
-  { label: 'Objectifs', href: `#${SECTION_IDS.objectives}` },
-  { label: 'Fonctionnalités', href: `#${SECTION_IDS.features}` },
+  { label: 'Présentation', to: `${ROUTES.home}#${SECTION_IDS.presentation}` },
+  { label: 'Objectifs', to: `${ROUTES.home}#${SECTION_IDS.objectives}` },
+  { label: 'Fonctionnalités', to: `${ROUTES.home}#${SECTION_IDS.features}` },
 ] as const
 
 export const CONTACT = {
@@ -142,10 +143,10 @@ export const FEATURES: { title: string; items: Feature[] } = {
 
 export const FOOTER = {
   slogan: ['And you,', 'what’s your Nextrip ?'],
-  copyright: `© ${new Date().getFullYear()} Nextrip — Ilias ASSADKI, LLC. Tous droits réservés.`,
+  copyright: `© ${new Date().getFullYear()} Nextrip — Ilias ASSADKI EI. Tous droits réservés.`,
   legalLinks: [
-    { label: 'CGU', href: '#cgu' },
-    { label: 'Mentions légales', href: '#mentions-legales' },
-    { label: 'Politique de confidentialité', href: '#confidentialite' },
+    { label: 'CGU', to: `${ROUTES.legalNotice}#cgu` },
+    { label: 'Mentions légales', to: ROUTES.legalNotice },
+    { label: 'Politique de confidentialité', to: ROUTES.privacyPolicy },
   ],
 } as const

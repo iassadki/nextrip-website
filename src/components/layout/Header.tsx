@@ -1,4 +1,6 @@
 import { useEffect, useId, useState } from 'react'
+import { Link } from 'react-router'
+import { ROUTES } from '@/app/routes'
 import { cx } from '@/lib/cx'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
@@ -25,9 +27,9 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.bar}>
-        <a href="#top" className={styles.brand} aria-label="Nextrip — retour en haut de page" onClick={closeMenu}>
+        <Link to={ROUTES.home} className={styles.brand} aria-label="Nextrip — accueil" onClick={closeMenu}>
           <Logo />
-        </a>
+        </Link>
 
         <nav aria-label="Navigation principale" className={styles.nav}>
           <NavLinks />
@@ -65,10 +67,10 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <ul className={styles.links}>
       {NAV_LINKS.map((link) => (
-        <li key={link.href}>
-          <a href={link.href} className={styles.link} onClick={onNavigate}>
+        <li key={link.to}>
+          <Link to={link.to} className={styles.link} onClick={onNavigate}>
             {link.label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

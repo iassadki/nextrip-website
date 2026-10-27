@@ -6,18 +6,31 @@
   min-height: clamp(460px, 72vh, 640px);
   overflow: hidden;
   padding-block: calc(var(--header-offset) + var(--space-6)) var(--space-7);
-  background:
-    radial-gradient(ellipse at 30% 85%, rgb(255 214 150 / 0.9), transparent 55%),
-    linear-gradient(180deg, #e9a3a6 0%, #f4b48f 45%, #ffd2a1 75%, #fff2e3 100%);
+  /* Sunset tones shown while the photo loads. */
+  background: linear-gradient(180deg, #f6b8c4 0%, #fbc59a 60%, #f6a074 100%);
   text-align: center;
 }
 
-.wing {
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Keep the winglet in frame when the viewport gets narrow. */
+  object-position: 35% center;
+}
+
+/* Soft light behind the text for legibility, and a fade into the next section. */
+.hero::after {
+  content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  width: 100%;
-  height: 100%;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 55%, rgb(255 244 234 / 0.7), transparent 72%),
+    linear-gradient(180deg, transparent 75%, var(--color-bg-warm) 100%);
 }
 
 .content {

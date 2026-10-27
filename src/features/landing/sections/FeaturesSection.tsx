@@ -8,7 +8,7 @@ export function FeaturesSection() {
     <Section id={SECTION_IDS.features} title={FEATURES.title} titleStyle="caps">
       <div className={styles.list}>
         {FEATURES.items.map((feature, index) => (
-          <FeatureRow key={feature.screen} feature={feature} reversed={index % 2 === 1} />
+          <FeatureRow key={feature.id} feature={feature} reversed={index % 2 === 1} />
         ))}
       </div>
     </Section>

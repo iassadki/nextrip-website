@@ -34,4 +34,4 @@ src/
 - **Contenu** : modifier un texte = modifier `src/data/content.ts`, sans toucher aux composants.
 - **Routes** : `/`, `/mentions-legales` (mentions + CGU), `/politique-de-confidentialite` (react-router, voir `app/routes.ts`). `public/_redirects` sert l'app pour toutes les URL sur Netlify.
 - **Imports** : alias `@/` vers `src/`, imports directs (pas de fichiers barrel).
-- **Captures de l'app** : les écrans sont des maquettes illustratives (`AppScreen`). Pour utiliser de vraies captures, déposez-les dans `src/assets/images/` et passez-les à `<PhoneFrame src={…} alt="…" />`.
+- **Captures de l'app** : dans `src/assets/images/screens/`, affichées dans le mockup iPhone `<PhoneFrame src alt />` (référencées depuis `data/content.ts`).

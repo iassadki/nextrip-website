@@ -4,6 +4,9 @@
  */
 import { ROUTES } from '@/app/routes'
 import type { IconName } from '@/components/icons/Icon'
+import tripActivitiesScreen from '@/assets/images/screens/trip-activities.jpg'
+import tripOrganizeScreen from '@/assets/images/screens/trip-organize.jpg'
+import tripsScreen from '@/assets/images/screens/trips.jpg'
 
 export const SECTION_IDS = {
   presentation: 'presentation',
@@ -12,9 +15,9 @@ export const SECTION_IDS = {
 } as const
 
 export const NAV_LINKS = [
-  { label: 'Présentation', to: `${ROUTES.home}#${SECTION_IDS.presentation}` },
-  { label: 'Objectifs', to: `${ROUTES.home}#${SECTION_IDS.objectives}` },
-  { label: 'Fonctionnalités', to: `${ROUTES.home}#${SECTION_IDS.features}` },
+  { label: 'Présentation', sectionId: SECTION_IDS.presentation, to: `${ROUTES.home}#${SECTION_IDS.presentation}` },
+  { label: 'Objectifs', sectionId: SECTION_IDS.objectives, to: `${ROUTES.home}#${SECTION_IDS.objectives}` },
+  { label: 'Fonctionnalités', sectionId: SECTION_IDS.features, to: `${ROUTES.home}#${SECTION_IDS.features}` },
 ] as const
 
 export const CONTACT = {
@@ -109,10 +112,11 @@ export const OBJECTIVES: { title: string; items: Objective[] } = {
   ],
 }
 
-export type FeatureScreen = 'trips' | 'organize' | 'activities'
-
 export interface Feature {
-  screen: FeatureScreen
+  id: string
+  /** App screenshot shown inside the iPhone mockup. */
+  image: string
+  imageAlt: string
   title: string
   description: string
 }
@@ -121,19 +125,25 @@ export const FEATURES: { title: string; items: Feature[] } = {
   title: 'Nos fonctionnalités',
   items: [
     {
-      screen: 'trips',
+      id: 'trips',
+      image: tripsScreen,
+      imageAlt: 'Écran « Mes Voyages » de l’application Nextrip avec un voyage à Paris',
       title: 'Tous vos voyages au même endroit',
       description:
         'Retrouvez facilement vos voyages passés, en cours et à venir depuis un seul espace. Toutes les informations essentielles restent accessibles en quelques secondes.',
     },
     {
-      screen: 'organize',
+      id: 'organize',
+      image: tripOrganizeScreen,
+      imageAlt: 'Écran d’un voyage en cours avec les sections Notes, Itinéraire et Lieux enregistrés',
       title: 'Organisez votre voyage simplement',
       description:
         'Centralisez vos notes, votre itinéraire et vos lieux enregistrés au sein d’un même voyage. Plus besoin de multiplier les applications pour préparer votre séjour.',
     },
     {
-      screen: 'activities',
+      id: 'activities',
+      image: tripActivitiesScreen,
+      imageAlt: 'Écran des activités à Paris filtrées par catégorie : musée, jardin, église',
       title: 'Trouvez les activités qui vous correspondent',
       description:
         'Découvrez des lieux et activités selon vos envies et ajoutez-les directement à votre voyage pour construire votre programme.',

@@ -1,7 +1,6 @@
 import { cx } from '@/lib/cx'
 import { PhoneFrame } from '@/components/ui/PhoneFrame'
 import type { Feature } from '@/data/content'
-import { AppScreen } from './AppScreen'
 import styles from './FeatureRow.module.css'
 
 interface FeatureRowProps {
@@ -13,9 +12,7 @@ interface FeatureRowProps {
 export function FeatureRow({ feature, reversed = false }: FeatureRowProps) {
   return (
     <article className={cx(styles.row, reversed && styles.reversed)}>
-      <PhoneFrame className={styles.phone}>
-        <AppScreen screen={feature.screen} />
-      </PhoneFrame>
+      <PhoneFrame src={feature.image} alt={feature.imageAlt} className={styles.phone} />
       <div className={styles.text}>
         <h3 className={styles.title}>{feature.title}</h3>
         <p className={styles.description}>{feature.description}</p>

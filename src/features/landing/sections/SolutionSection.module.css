@@ -1,0 +1,57 @@
+.layout {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.visual {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  background: var(--color-primary-tint);
+}
+
+.mark {
+  width: min(55%, 220px);
+  color: var(--color-primary);
+}
+
+.listCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.list li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  top: 0.6em;
+  left: var(--space-2);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+
+.conclusion {
+  font-weight: 700;
+  color: var(--color-primary-strong);
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}

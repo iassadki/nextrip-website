@@ -1,0 +1,33 @@
+import { useId, type SVGProps } from 'react'
+
+/**
+ * Nextrip suitcase + plane mark, redrawn as a vector so it stays crisp at any size.
+ * The plane is cut out of the suitcase with a mask, so it works on any background.
+ */
+export function LogoMark(props: SVGProps<SVGSVGElement>) {
+  const maskId = useId()
+
+  return (
+    <svg viewBox="170 250 720 530" fill="currentColor" aria-hidden="true" {...props}>
+      <defs>
+        <mask id={maskId}>
+          <rect x="0" y="0" width="1024" height="1024" fill="white" />
+          <g fill="black">
+            <polygon points="591,415 620,386 745,420 690,475" />
+            <polygon points="718,503 773,449 807,577 779,605" />
+            <polygon points="578,522 590,510 643,524 621,547" />
+            <polygon points="646,578 668,555 683,610 671,622" />
+          </g>
+        </mask>
+      </defs>
+      <g mask={`url(#${maskId})`}>
+        <path
+          fillRule="evenodd"
+          d="M426 261h144a84 84 0 0 1 84 84v10h-64v-10a50 50 0 0 0-50-50H452a50 50 0 0 0-50 50v10h-61v-10a84 84 0 0 1 85-84z"
+        />
+        <rect x="187" y="355" width="640" height="406" rx="80" />
+        <path d="M786 366c44-46 84-61 92-44 7 18-18 58-56 86z" />
+      </g>
+    </svg>
+  )
+}

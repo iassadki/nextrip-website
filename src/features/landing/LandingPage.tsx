@@ -1,3 +1,4 @@
+import { DownloadSection } from './sections/DownloadSection'
 import { FeaturesSection } from './sections/FeaturesSection'
 import { HeroSection } from './sections/HeroSection'
 import { ObjectivesSection } from './sections/ObjectivesSection'
@@ -14,6 +15,7 @@ export function LandingPage() {
       <SolutionSection />
       <ObjectivesSection />
       <FeaturesSection />
+      <DownloadSection />
     </>
   )
 }

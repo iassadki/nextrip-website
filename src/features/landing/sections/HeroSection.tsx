@@ -16,7 +16,7 @@ export function HeroSection() {
         <p className={styles.tagline}>{HERO.tagline}</p>
         <div className={styles.actions}>
           <ButtonLink to={HERO.primaryCta.to}>{HERO.primaryCta.label}</ButtonLink>
-          <ButtonLink href={HERO.secondaryCta.href} variant="secondary">
+          <ButtonLink to={HERO.secondaryCta.to} variant="secondary">
             {HERO.secondaryCta.label}
           </ButtonLink>
         </div>

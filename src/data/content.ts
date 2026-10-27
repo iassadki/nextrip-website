@@ -12,6 +12,7 @@ export const SECTION_IDS = {
   presentation: 'presentation',
   objectives: 'objectifs',
   features: 'fonctionnalites',
+  download: 'telecharger',
 } as const
 
 export const NAV_LINKS = [
@@ -32,7 +33,7 @@ export const HERO = {
   titleHighlight: 'une seule et même application',
   tagline: "And you, what's your Nextrip ?",
   primaryCta: { label: 'Voir la présentation', to: `${ROUTES.home}#${SECTION_IDS.presentation}` },
-  secondaryCta: { label: "Télécharger l'app", href: '#telecharger' },
+  secondaryCta: { label: "Télécharger l'app", to: `${ROUTES.home}#${SECTION_IDS.download}` },
 } as const
 
 export const PRESENTATION = {
@@ -150,6 +151,15 @@ export const FEATURES: { title: string; items: Feature[] } = {
     },
   ],
 }
+
+export const DOWNLOAD = {
+  title: 'Télécharger l’app',
+  heading: 'Nextrip arrive bientôt sur votre téléphone',
+  description:
+    'L’application est en cours de finalisation. Dès sa sortie, scannez le QR code pour la télécharger sur iOS et Android.',
+  badge: 'Coming soon',
+  platforms: ['iOS', 'Android'],
+} as const
 
 export const FOOTER = {
   slogan: ['And you,', 'what’s your Nextrip ?'],

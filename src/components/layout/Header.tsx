@@ -43,7 +43,7 @@ export function Header() {
           <NavLinks activeSectionId={activeSectionId} />
         </nav>
 
-        <ButtonLink href={HERO.secondaryCta.href} className={styles.cta}>
+        <ButtonLink to={HERO.secondaryCta.to} className={styles.cta}>
           {HERO.secondaryCta.label}
         </ButtonLink>
 
@@ -63,7 +63,7 @@ export function Header() {
         <nav aria-label="Navigation mobile">
           <NavLinks activeSectionId={activeSectionId} onNavigate={closeMenu} />
         </nav>
-        <ButtonLink href={HERO.secondaryCta.href} onClick={closeMenu}>
+        <ButtonLink to={HERO.secondaryCta.to} onClick={closeMenu}>
           {HERO.secondaryCta.label}
         </ButtonLink>
       </div>

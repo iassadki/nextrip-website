@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router'
 import { ROUTES } from '@/app/routes'
 import { cx } from '@/lib/cx'
 import { useActiveSection } from '@/hooks/useActiveSection'
-import { useScrolledPast } from '@/hooks/useScrolledPast'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 import { HERO, NAV_LINKS } from '@/data/content'
@@ -13,14 +12,13 @@ const NAV_SECTION_IDS = NAV_LINKS.map((link) => link.sectionId)
 
 /**
  * Floating pill navbar, with a dropdown menu below 768px.
- * It turns solid once the page scrolls and highlights the link of the section in view.
+ * The link of the section in view is highlighted in the primary color.
  */
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuId = useId()
   const { pathname } = useLocation()
   const activeSectionId = useActiveSection(NAV_SECTION_IDS, pathname)
-  const isScrolled = useScrolledPast(24)
 
   useEffect(() => {
     if (!isMenuOpen) return
@@ -36,7 +34,7 @@ export function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={cx(styles.bar, isScrolled && styles.barScrolled)}>
+      <div className={styles.bar}>
         <Link to={ROUTES.home} className={styles.brand} aria-label="Nextrip — accueil" onClick={closeMenu}>
           <Logo />
         </Link>

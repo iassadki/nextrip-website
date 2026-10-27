@@ -31,7 +31,7 @@ export const HERO = {
   titleStart: 'Toute votre expérience de voyage en',
   titleHighlight: 'une seule et même application',
   tagline: "And you, what's your Nextrip ?",
-  primaryCta: { label: 'Voir la présentation', href: `#${SECTION_IDS.presentation}` },
+  primaryCta: { label: 'Voir la présentation', to: `${ROUTES.home}#${SECTION_IDS.presentation}` },
   secondaryCta: { label: "Télécharger l'app", href: '#telecharger' },
 } as const
 

@@ -18,7 +18,7 @@ export function LegalDocument({ content }: { content: LegalDocumentContent }) {
           <ol>
             {content.sections.map((section) => (
               <li key={section.id}>
-                <a href={`#${section.id}`}>{section.title}</a>
+                <Link to={`#${section.id}`}>{section.title}</Link>
               </li>
             ))}
           </ol>

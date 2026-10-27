@@ -7,15 +7,9 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Anchor targets land below the fixed navbar; the scroll animation itself lives in lib/smoothScroll. */
   scroll-padding-top: var(--header-offset);
   -webkit-text-size-adjust: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 body {

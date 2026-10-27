@@ -13,7 +13,7 @@ export function HeroSection() {
         </h1>
         <p className={styles.tagline}>{HERO.tagline}</p>
         <div className={styles.actions}>
-          <ButtonLink href={HERO.primaryCta.href}>{HERO.primaryCta.label}</ButtonLink>
+          <ButtonLink to={HERO.primaryCta.to}>{HERO.primaryCta.label}</ButtonLink>
           <ButtonLink href={HERO.secondaryCta.href} variant="secondary">
             {HERO.secondaryCta.label}
           </ButtonLink>
